@@ -1,13 +1,13 @@
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Typography,
-  Button,
-  Stack,
-} from "@mui/material";
 import BlockIcon from "@mui/icons-material/Block";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { useCardContext } from "../../context/CardContext";
 
 type AutoBlockedModalProps = {

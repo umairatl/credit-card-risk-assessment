@@ -1,22 +1,22 @@
-import { useEffect, useState } from "react";
 import {
-  useTheme,
-  useMediaQuery,
+  Button,
   Dialog,
-  DialogTitle,
+  DialogActions,
   DialogContent,
   DialogContentText,
-  DialogActions,
-  Button,
+  DialogTitle,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
+import { useEffect, useState } from "react";
 import { useCardContext } from "../../context/CardContext";
-import { CardAccount, CardStatus } from "../../types/card";
+import { CardStatus } from "../../types/card";
 import { calculateUtilization } from "../../utils/dashboard";
 
-import CardCarousel from "./CardCarousel";
-import CardTable from "./CardTable";
-import CardLimitModal from "./CardModal";
 import AutoBlockedModal from "../shared/AutoBlockModal";
+import CardCarousel from "./CardCarousel";
+import CardLimitModal from "./CardModal";
+import CardTable from "./CardTable";
 
 function CardDashboard({
   setSelectedCardId,
@@ -43,7 +43,9 @@ function CardDashboard({
   function handleConfirm() {
     if (!confirmPending) return;
     const newStatus =
-      confirmPending.currentStatus === "ACTIVE" ? "TEMPORARY_BLOCKED" : "ACTIVE";
+      confirmPending.currentStatus === "ACTIVE"
+        ? "TEMPORARY_BLOCKED"
+        : "ACTIVE";
     onChangeCardStatus(confirmPending.cardId, newStatus);
     setConfirmPending(null);
   }
@@ -104,7 +106,9 @@ function CardDashboard({
         fullWidth
       >
         <DialogTitle sx={{ fontWeight: 700 }}>
-          {confirmPending?.currentStatus === "ACTIVE" ? "Block Card" : "Unblock Card"}
+          {confirmPending?.currentStatus === "ACTIVE"
+            ? "Block Card"
+            : "Unblock Card"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -120,7 +124,9 @@ function CardDashboard({
           <Button
             onClick={handleConfirm}
             variant="contained"
-            color={confirmPending?.currentStatus === "ACTIVE" ? "error" : "success"}
+            color={
+              confirmPending?.currentStatus === "ACTIVE" ? "error" : "success"
+            }
             autoFocus
           >
             {confirmPending?.currentStatus === "ACTIVE" ? "Block" : "Unblock"}

@@ -14,13 +14,13 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { CardAccount, CardStatus } from "../../types/card";
 import {
   calculateAvailableCredit,
   calculateRiskLevel,
   calculateUtilization,
   paymentStatusSimulation,
 } from "../../utils/dashboard";
-import { CardAccount, CardStatus } from "../../types/card";
 
 type Props = {
   cards: CardAccount[];
@@ -29,13 +29,7 @@ type Props = {
   onOpenLimit: (cardId: string, currentLimit?: number) => void;
 };
 
-function CardCarousel({
-  cards,
-  onSelect,
-  onToggleStatus,
-  onOpenLimit,
-}: Props) {
-
+function CardCarousel({ cards, onSelect, onToggleStatus, onOpenLimit }: Props) {
   return (
     <Box
       sx={{
@@ -131,8 +125,8 @@ function CardCarousel({
                       utilization >= 80
                         ? "error.main"
                         : utilization >= 60
-                        ? "warning.main"
-                        : "success.main"
+                          ? "warning.main"
+                          : "success.main"
                     }
                   />
 
@@ -157,8 +151,8 @@ function CardCarousel({
                         utilization >= 80
                           ? "warning"
                           : utilization >= 60
-                          ? "info"
-                          : "success"
+                            ? "info"
+                            : "success"
                       }
                       variant="outlined"
                       sx={{ height: 18, fontSize: "0.65rem" }}

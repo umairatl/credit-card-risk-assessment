@@ -21,13 +21,13 @@ import {
   Typography,
 } from "@mui/material";
 
+import { CardAccount, CardStatus } from "../../types/card";
 import {
   calculateAvailableCredit,
   calculateRiskLevel,
   calculateUtilization,
   paymentStatusSimulation,
 } from "../../utils/dashboard";
-import { CardAccount, CardStatus } from "../../types/card";
 
 type Props = {
   cards: CardAccount[];
@@ -120,8 +120,8 @@ function CardTable({ cards, onSelect, onToggleStatus, onOpenLimit }: Props) {
                         utilization >= 80
                           ? "error.main"
                           : utilization >= 60
-                          ? "warning.main"
-                          : "success.main"
+                            ? "warning.main"
+                            : "success.main"
                       }
                     >
                       {utilization.toFixed(1)}%
@@ -151,8 +151,8 @@ function CardTable({ cards, onSelect, onToggleStatus, onOpenLimit }: Props) {
                         utilization >= 80
                           ? "warning"
                           : utilization >= 60
-                          ? "info"
-                          : "success"
+                            ? "info"
+                            : "success"
                       }
                       variant="outlined"
                       sx={{ fontWeight: 600 }}
