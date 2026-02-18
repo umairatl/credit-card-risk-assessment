@@ -96,7 +96,8 @@ export const useTransaction = (selectedCardId: string) => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []); // empty — interval runs once and handles all cards independently
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function closeExceedModal() {
     setShowExceedModal(false);

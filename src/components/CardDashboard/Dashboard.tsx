@@ -76,6 +76,7 @@ function CardDashboard({
         setShowAutoBlockModal(true);
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userCards]);
 
   const selectedCard = userCards.find((c) => c.id === showLimitModal);
